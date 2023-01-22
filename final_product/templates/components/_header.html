@@ -1,0 +1,61 @@
+{% load custom_tags %}
+
+
+{% cart_quantity request as quantity %}
+
+
+<!-- navbar-->
+<header class="header bg-white">
+    <div class="container px-lg-3">
+        <nav class="navbar navbar-expand-lg navbar-light py-3 px-lg-0"><a class="navbar-brand" href="{% url 'index' %}"><span
+                class="fw-bold text-uppercase text-dark">Boutique</span></a>
+            <button class="navbar-toggler navbar-toggler-end" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <!-- Link--><a class="nav-link active" href="{% url 'index' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <!-- Link--><a class="nav-link" href="{% url 'categories' %}">Shop</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'cart' %}">
+                            <i class="fas fa-dolly-flatbed me-1 text-gray"></i>Cart
+                            <small class="text-gray fw-normal">({{ quantity }})</small>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#!">
+                            <i class="far fa-heart me-1"></i><small
+                                class="text-gray fw-normal"> (0)</small></a></li>
+
+                    {% if not request.user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}">
+                            <i class="fas fa-user me-1 text-gray fw-normal"></i>Login
+                        </a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}">
+                            <i class="fas fa-user me-1 text-gray fw-normal"></i>Logout
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        {% if request.user.avatar %}
+                        <img src="{{ request.user.avatar.url }}" alt="" width="40" height="40"
+                             style="border-radius: 50%;">
+                        {% endif %}
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+<!--  Modal -->

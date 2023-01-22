@@ -1,0 +1,13 @@
+{% load custom_tags %}
+{% get_categories as categories %}
+
+<ul class="list-unstyled small text-muted ps-lg-4 font-weight-normal">
+    <li class="mb-2">
+        <a class="reset-anchor" href="{% url 'categories' %}">All</a>
+    </li>
+    {% for category in categories %}
+    <li class="mb-2">
+        <a class="reset-anchor" href="{{ category.get_absolute_url }}">{{ category }}</a>
+    </li>
+    {% endfor %}
+</ul>

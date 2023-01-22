@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Главная страница
+{% endblock title %}
+
+
+{% block content %}
+
+{% include './components/index/_hero.html' %}
+<!-- CATEGORIES SECTION-->
+{% include './components/index/_categories.html' %}
+<!-- TRENDING PRODUCTS-->
+{% include './components/index/_trending-products.html' %}
+<!-- SERVICES-->
+{% include './components/index/_services.html' %}
+<!-- NEWSLETTER-->
+{% include './components/index/_newsletter.html' %}
+
+{% endblock content %}

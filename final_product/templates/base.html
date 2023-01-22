@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>
+        {% block title %}
+        {% endblock title %}
+    </title>
+    {% include 'components/_styles.html' %}
+</head>
+<body>
+<div class="page-holder">
+    {% include 'components/_header.html' %}
+    <!-- HERO SECTION-->
+    <div class="container">
+        {% block content %}
+        {% endblock content %}
+    </div>
+    {% include 'components/_footer.html' %}
+    <!-- JavaScript files-->
+    {% include 'components/_scripts.html' %}
+
+    {% block extra_scripts %}
+    {% endblock %}
+</div>
+</body>
+</html>
