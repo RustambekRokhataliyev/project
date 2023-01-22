@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 
-from boutique import settings
+from core import settings
 from pages.models import Product
 from .models import Order, OrderProduct
 from accounts.models import CustomUser

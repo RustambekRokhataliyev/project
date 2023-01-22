@@ -4,7 +4,7 @@ from django.urls import reverse
 
 from .utils import CartFormAnonymousUser, CartForAuthenticatedUser, get_cart_data
 from .forms import CustomerForm, ShippingAddressForm
-from boutique import settings
+from core import settings
 import stripe
 
 # Create your views here.
